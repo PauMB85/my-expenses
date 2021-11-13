@@ -1,8 +1,20 @@
+import { Amplify } from 'aws-amplify';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
+import config from './config';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
+
+Amplify.configure({
+  API: {
+    endpoints: [{
+      name: 'api-expense',
+      endpoint: config.apiGateway.URL,
+      region: config.apiGateway.REGION
+    }]
+  }
+})
 
 ReactDOM.render(
   <React.StrictMode>
