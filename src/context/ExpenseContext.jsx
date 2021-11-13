@@ -19,6 +19,7 @@ const ExpenseProvider = ({children}) => {
   useEffect(() => {
     setExpanses(expenses, {isLoading: false});
     listExpensesAllExpenses().then(({gastos, fecha, total}) => setExpanses({gastos, fecha, total, isLoading: false}));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const saveNewExpense = (expense) => {

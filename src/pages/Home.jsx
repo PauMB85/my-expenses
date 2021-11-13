@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { ListExpenses } from '../components/expenses/list-expenses/ListExpenses';
 import { NewExpenses } from '../components/expenses/new-expenses/NewExpenses';
 import { ExpenseContext } from './../context/ExpenseContext';
-import { SignUp } from './signup/SignUp';
+import { Header } from './header/Header';
 
 export const Home = () => {
 
@@ -14,9 +14,11 @@ export const Home = () => {
   
   return (
     <div>
+      <Header />
       <NewExpenses addNewExpense={addNewExpense}/>
       <ListExpenses expenses={gastos}/>
-      <SignUp />
     </div>
   )
 }
+
+export default Home;

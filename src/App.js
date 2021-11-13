@@ -1,16 +1,14 @@
 import React from 'react';
 import './App.css';
 import ExpenseProvider from './context/ExpenseContext';
-import { Header } from './pages/header/Header';
-import { Home } from './pages/Home';
+import { AppRouter } from './routes/AppRouter';
 
 function App() {
   
   return (
     <div className="App">
       <ExpenseProvider>
-        <Header />
-        <Home />
+        <AppRouter />
       </ExpenseProvider>
     </div>
   );

@@ -1,3 +1,4 @@
+import { Auth } from 'aws-amplify';
 import { useState } from 'react';
 import { SignUpConfirm } from './SignUpConfirm';
 
@@ -17,9 +18,21 @@ export const SignUp = () => {
     setSignUp({...signUp, [name]: value});
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
-    setIsNewUser(true);
+    try {
+      await Auth.signUp({
+        username: signUp.mail,
+        password: signUp.password,
+        attributes: {
+            name: signUp.name,
+            family_name: signUp.surname
+        }
+      });
+      setIsNewUser(true);
+    } catch(e) {
+      console.log('Error en signup', e);
+    }
     console.log('onSubmit', signUp);
   }
 
