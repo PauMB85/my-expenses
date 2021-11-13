@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { currentDate } from './../../../service/dates.utils';
 import './NewExpenses.css';
 
@@ -7,7 +7,7 @@ export const NewExpenses = ({expense, addNewExpense}) => {
 
   const [newExpense, setNewExpense] = useState(expense);
   
-  const onSubmit = (event) => {
+  const handlerSubmit = (event) => {
     event.preventDefault();
     addNewExpense({...newExpense, fecha: currentDate()});
     setNewExpense(expense);
@@ -19,7 +19,7 @@ export const NewExpenses = ({expense, addNewExpense}) => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="form-expenses">
+    <form onSubmit={handlerSubmit} className="form-expenses">
       <div className="form-expenses__input">
         <label htmlFor="cantidad">Cantidad: </label>
         <input type="number" name="cantidad" id="cantidad" onChange={onChange} value={newExpense.cantidad}/>
